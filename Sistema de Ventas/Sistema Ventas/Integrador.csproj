@@ -1,0 +1,513 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A447DF3B-2831-4EA7-9802-037BD5453F0C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Integrador</RootNamespace>
+    <AssemblyName>Integrador</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ArticuloDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArticuloDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ArticulosDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArticulosDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\Articulo.cs" />
+    <Compile Include="Clases\Barrio.cs" />
+    <Compile Include="Clases\Categoria.cs" />
+    <Compile Include="Clases\Cliente.cs" />
+    <Compile Include="Clases\Conexion.cs" />
+    <Compile Include="Clases\Genero.cs" />
+    <Compile Include="Clases\Localidad.cs" />
+    <Compile Include="Clases\Marca.cs" />
+    <Compile Include="Clases\Presentacion.cs" />
+    <Compile Include="Clases\Provincia.cs" />
+    <Compile Include="Clases\TipoDocumento.cs" />
+    <Compile Include="Clases\Empleado.cs" />
+    <Compile Include="Clases\Factura.cs" />
+    <Compile Include="Clases\TipoEmpleado.cs" />
+    <Compile Include="Clases\TipoFactura.cs" />
+    <Compile Include="EmpleadosDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmpleadosDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Articulos\frmListarArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Articulos\frmListarArticulos.Designer.cs">
+      <DependentUpon>frmListarArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Articulos\frmModificarArticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Articulos\frmModificarArticulo.Designer.cs">
+      <DependentUpon>frmModificarArticulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Articulos\frmRegistrarArticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Articulos\frmRegistrarArticulo.Designer.cs">
+      <DependentUpon>frmRegistrarArticulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Clientes\frmListarClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Clientes\frmListarClientes.Designer.cs">
+      <DependentUpon>frmListarClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Clientes\frmModificarClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Clientes\frmModificarClientes.Designer.cs">
+      <DependentUpon>frmModificarClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Clientes\frmRegistrarClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Clientes\frmRegistrarClientes.Designer.cs">
+      <DependentUpon>frmRegistrarClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Empleados\frmListarEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Empleados\frmListarEmpleados.Designer.cs">
+      <DependentUpon>frmListarEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Empleados\frmModificarEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Empleados\frmModificarEmpleados.Designer.cs">
+      <DependentUpon>frmModificarEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Empleados\frmRegistrarEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Empleados\frmRegistrarEmpleados.Designer.cs">
+      <DependentUpon>frmRegistrarEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmLogin.designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Herramientas\frmCalculadora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Herramientas\frmCalculadora.Designer.cs">
+      <DependentUpon>frmCalculadora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\frmReporteArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\frmReporteArticulos.Designer.cs">
+      <DependentUpon>frmReporteArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\frmReporteClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\frmReporteClientes.Designer.cs">
+      <DependentUpon>frmReporteClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\frmReporteEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\frmReporteEmpleados.Designer.cs">
+      <DependentUpon>frmReporteEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Usuarios\frmListarUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Usuarios\frmListarUsuarios.Designer.cs">
+      <DependentUpon>frmListarUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Usuarios\frmRegistrarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Usuarios\frmRegistrarUsuario.Designer.cs">
+      <DependentUpon>frmRegistrarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Ventas\frmAnularVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Ventas\frmAnularVenta.Designer.cs">
+      <DependentUpon>frmAnularVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Ventas\frmRegistrarVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Ventas\frmRegistrarVentas.Designer.cs">
+      <DependentUpon>frmRegistrarVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrincipal.Designer.cs">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SistemaVentasIntegradorDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SistemaVentasIntegradorDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SistemaVentasIntegradorDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SistemaVentasIntegradorDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SistemaVentasIntegradorDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SistemaVentasIntegradorDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="Formularios\Articulos\frmListarArticulos.resx">
+      <DependentUpon>frmListarArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Articulos\frmModificarArticulo.resx">
+      <DependentUpon>frmModificarArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Articulos\frmRegistrarArticulo.resx">
+      <DependentUpon>frmRegistrarArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Clientes\frmListarClientes.resx">
+      <DependentUpon>frmListarClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Clientes\frmModificarClientes.resx">
+      <DependentUpon>frmModificarClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Clientes\frmRegistrarClientes.resx">
+      <DependentUpon>frmRegistrarClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Empleados\frmListarEmpleados.resx">
+      <DependentUpon>frmListarEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Empleados\frmModificarEmpleados.resx">
+      <DependentUpon>frmModificarEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Empleados\frmRegistrarEmpleados.resx">
+      <DependentUpon>frmRegistrarEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Herramientas\frmCalculadora.resx">
+      <DependentUpon>frmCalculadora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\frmReporteArticulos.resx">
+      <DependentUpon>frmReporteArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\frmReporteClientes.resx">
+      <DependentUpon>frmReporteClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\frmReporteEmpleados.resx">
+      <DependentUpon>frmReporteEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Ventas\frmAnularVenta.resx">
+      <DependentUpon>frmAnularVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Ventas\frmRegistrarVentas.resx">
+      <DependentUpon>frmRegistrarVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="ReportArticulos.rdlc" />
+    <EmbeddedResource Include="ReportCliente.rdlc" />
+    <EmbeddedResource Include="ReportEmpleados.rdlc" />
+    <EmbeddedResource Include="RptArticulo.rdlc" />
+    <EmbeddedResource Include="RptCliente.rdlc" />
+    <EmbeddedResource Include="RptEmpleados.rdlc" />
+    <None Include="ArticuloDataSet.xsc">
+      <DependentUpon>ArticuloDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ArticuloDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ArticuloDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ArticuloDataSet.xss">
+      <DependentUpon>ArticuloDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ArticulosDataSet.xsc">
+      <DependentUpon>ArticulosDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ArticulosDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ArticulosDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ArticulosDataSet.xss">
+      <DependentUpon>ArticulosDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="EmpleadosDS.xsc">
+      <DependentUpon>EmpleadosDS.xsd</DependentUpon>
+    </None>
+    <None Include="EmpleadosDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EmpleadosDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EmpleadosDS.xss">
+      <DependentUpon>EmpleadosDS.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="SistemaVentasIntegradorDataSet.xsc">
+      <DependentUpon>SistemaVentasIntegradorDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SistemaVentasIntegradorDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SistemaVentasIntegradorDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SistemaVentasIntegradorDataSet.xss">
+      <DependentUpon>SistemaVentasIntegradorDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SistemaVentasIntegradorDataSet1.xsc">
+      <DependentUpon>SistemaVentasIntegradorDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="SistemaVentasIntegradorDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SistemaVentasIntegradorDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SistemaVentasIntegradorDataSet1.xss">
+      <DependentUpon>SistemaVentasIntegradorDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="SistemaVentasIntegradorDataSet2.xsc">
+      <DependentUpon>SistemaVentasIntegradorDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="SistemaVentasIntegradorDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SistemaVentasIntegradorDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SistemaVentasIntegradorDataSet2.xss">
+      <DependentUpon>SistemaVentasIntegradorDataSet2.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-10-30 at 12.38.07 PM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoSV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-10-30 at 3.07.49 PM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-10-31 at 3.20.50 AM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-10-31 at 3.21.23 AM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-10-31 at 3.21.40 AM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-10-31 at 3.21.58 AM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-10-31 at 3.48.35 AM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-10-31 at 3.48.06 AM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-11-03 at 12.13.26 AM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-11-03 at 12.26.35 AM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loguito.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-11-03 at 2.06.49 PM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-11-03 at 2.04.16 PM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-11-03 at 1.48.12 PM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-11-04 at 11.27.08 AM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlancoAla.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-11-05 at 12.24.49 AM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-11-05 at 1.02.27 AM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-11-05 at 1.04.24 AM %281%29.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-11-05 at 1.09.26 AM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-11-05 at 1.10.59 AM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-11-05 at 1.15.45 AM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-11-05 at 1.40.26 AM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-11-05 at 1.48.15 AM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-11-05 at 1.47.32 AM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-11-05 at 1.46.30 AM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-11-05 at 1.44.49 AM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-11-05 at 1.43.23 AM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-11-05 at 1.00.23 AM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-11-05 at 1.56.49 AM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-11-05 at 2.00.03 AM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-11-05 at 2.28.48 AM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-11-11 at 2.10.20 AM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-11-11 at 2.18.47 AM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-11-11 at 2.22.15 AM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2020-11-11 at 3.00.04 AM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
